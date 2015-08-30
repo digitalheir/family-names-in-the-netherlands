@@ -22,10 +22,13 @@ CSV.foreach('family_names_in_the_netherlands.csv') do |row|
   elsif i == 0
     raise "#{i} ??? #{row[-4..-1].to_s} != [\"family_name\", \"href\", \"number in 2007\", \"lemma\"]: #{row[-4..-1] != ['family_name', 'href', 'number in 2007', 'lemma']}"
   else
-    db_name = row[0].force_encoding('utf-8')
-    href = row[1].force_encoding('utf-8')
-    count = row[2].force_encoding('utf-8')
-    lemma = row[3].force_encoding('utf-8')
+    db_name = row[0].force_encoding('utf-8').strip
+    href = row[1].force_encoding('utf-8').strip
+    if href and href.length>0
+      href = "http://meertens.knaw.nl/nfb/#{href}"
+    end
+    count = row[2].force_encoding('utf-8').strip
+    lemma = row[3].force_encoding('utf-8').strip
 
     natural_name = db_name
     if DONT_CORRECT_NAMES.map { |reg| db_name.match reg }.reduce(false) { |a, b| a or b }
@@ -71,7 +74,9 @@ CSV.foreach('family_names_in_the_netherlands.csv') do |row|
         natural_name = "#{prefix.strip}#{space}#{db_name.gsub(/,[^,]*$/, '').strip}"
       end
     end
-
+    # if [natural_name, db_name, href, count, lemma] == ['', '', '', '0', '']
+    #   puts "#{[natural_name, db_name, href, count, lemma]} ??? #{row}"
+    # end
     csv << [natural_name, db_name, href, count, lemma]
   end
   i+=1
