@@ -15,6 +15,8 @@ A basic list is available in multiple formats:
 |Fusion table|[link](https://www.google.com/fusiontables/embedviz?viz=GVIZ&t=TABLE&q=select+col4%2C+col5%2C+col6%2C+col7%2C+col3+from+1V6_N4E9W4n8UX-INvK0bZOXHtmnN7-uc1JFTTOGS&containerId=googft-gviz-canvas)||
 |txt |[family_names.lst](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names.lst)|alphabetic lookup list of natural names|
 
+<iframe width="500" height="300" scrolling="yes" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=GVIZ&amp;t=TABLE&amp;q=select+col4%2C+col5%2C+col6%2C+col7%2C+col3+from+1V6_N4E9W4n8UX-INvK0bZOXHtmnN7-uc1JFTTOGS&amp;containerId=googft-gviz-canvas"></iframe>
+
 ## Top 50 last names in the Netherlands
 
 |no.|name|count in 2007|
