@@ -19,7 +19,7 @@ end
 puts "Considering #{rows.length} rows"
 
 CSV.open("top_#{top}_last_names_in_the_netherlands_2007.csv", 'w+') do |csv|
-  rows.sort_by { |row| -Integer(row[3]) }[0..top].each do |row|
+  rows.sort_by { |row| -Integer(row[3]) }[0..(top-1)].each do |row|
     csv << row
   end
 end
