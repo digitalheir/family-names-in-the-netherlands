@@ -3,7 +3,7 @@
 # Family names in the Netherlands
 
 
-This project exists to make structured, machine readable data out of the [Meertens Dutch Family Name Database](http://www.meertens.knaw.nl/nfb/), which contains about 320000 last names that were recorded in 2007 as well as in 1947.
+This project exists to make structured, machine readable data out of the [Meertens Dutch Family Name Database](http://www.meertens.knaw.nl/nfb/), which contains about 320 000 last names that were recorded in 2007 as well as in 1947.
 
 ## Usage
 A basic list is available in multiple formats:
@@ -12,7 +12,7 @@ A basic list is available in multiple formats:
 |---|---|---|---|
 |CSV |[family_names_in_the_netherlands_with_natural_name.csv](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.csv)||
 |JSON|[family_names_in_the_netherlands_with_natural_name.json](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.json)||
-|Fusion table|||
+|Fusion table|[link](https://www.google.com/fusiontables/embedviz?viz=GVIZ&t=TABLE&q=select+col4%2C+col5%2C+col6%2C+col7%2C+col3+from+1V6_N4E9W4n8UX-INvK0bZOXHtmnN7-uc1JFTTOGS&containerId=googft-gviz-canvas)||
 |txt |[family_names.lst](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names.lst)|alphabetic lookup list of natural names|
 
 ## Top 50 last names in the Netherlands

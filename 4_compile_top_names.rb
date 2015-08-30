@@ -2,7 +2,7 @@ require 'csv'
 
 rows = []
 
-top = 50
+top = 1_000
 CSV.foreach('family_names_in_the_netherlands_with_natural_name.csv') do |row|
   begin
     unless row[3] == 'count in 2007'
