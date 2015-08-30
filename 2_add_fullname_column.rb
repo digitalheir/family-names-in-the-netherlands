@@ -58,7 +58,7 @@ CSV.foreach('family_names_in_the_netherlands.csv') do |row|
         prefix = db_name.match(/,([^,]*)$/)[1].strip # Take the part after the final comma: this is the prefix (e.g. 'van de')
 
         space = ' '
-        if prefix.match /[^\p{L}]$/ or db_name.match /^[^\p{L}]/
+        if prefix.length <= 0 or prefix.match /[^\p{L}]$/ or db_name.match /^[^\p{L}]/
           if DONT_REMOVE_SPACE_FOR_PREFIXES.map { |reg| prefix.match reg }.reduce(false) { |a, b| a or b }
             puts ">Writing #{prefix.strip} #{db_name.gsub(/,[^,]*$/, '').strip} instead of #{prefix.strip}#{db_name.gsub(/,[^,]*$/, '').strip}"
           else

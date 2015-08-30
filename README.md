@@ -5,9 +5,11 @@ This project exists to make structured, machine readable data out of the [Meerte
 
 We scrape the Meertens website to generate a CSV file that contains: the family name, the number of times it was counted in 2007, and name as lemma (meaning the 'base' version names that has multiple variants, e.g. `Jansen` is the lemma for both `Janﬂen` and `Jansen`).
 
-We then apply some formatting. Mainly, we add a column for the 'natural name', which transforms a name such as `Veld, in 't` to `in 't Veld`. The resulting file is [`family_names_in_the_netherlands_with_natural_name.csv`](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.csv), which is also uploaded as a [Fusion Table](). Note that the list still contains some strange cases, such as `in 'tVeld` (missing space) and `van 0s` (with the number 0 instead of the letter O), but we do not attempt to correct these.
+We then apply some formatting. Mainly, we add a column for the 'natural name', which transforms a name such as `Veld, in 't` to `in 't Veld`. The resulting file is [`family_names_in_the_netherlands_with_natural_name.csv`](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.csv), which is also uploaded as a [Fusion Table](). We also create an alphabetic lookup list of all family names in the database, which is available in [`family_names.lst`](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names.lst).
+
+Note that the list still contains some strange cases, such as `in 'tVeld` (missing space) and `van 0s` (with the number 0 instead of the letter O), but we do not attempt to correct these.
  
-We also create an alphabetic lookup list of all family names in the database, which is available in [`family_names.lst`](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names.lst).
+
 
 ## Example
 Below are some (a-)typical examples or rows you'd find in the [`family_names_in_the_netherlands_with_natural_name.csv`](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.csv) file.
