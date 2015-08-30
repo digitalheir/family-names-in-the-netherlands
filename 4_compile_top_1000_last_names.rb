@@ -1,15 +1,25 @@
+require 'csv'
+
 rows = []
+
+top = 50
 CSV.foreach('family_names_in_the_netherlands_with_natural_name.csv') do |row|
   begin
-    count=Integer()
-    rows << row
+    unless row[3] == 'count in 2007'
+      count = Integer(row[3].gsub(/\./, ''))
+      rows << [row[0], row[1], row[2], count, row[4]]
+    end
   rescue
-    puts "could not parse #{row[3]}"
+    unless row[3] == '< 5'
+      puts "could not parse #{row[3]}"
+    end
   end
 end
 
-CSV.open('top_1000_last_names_in_the_netherlands_2007.csv', 'w+') do |csv|
-  csv.sort_by { |row| row[0] }.each do |row|
+puts "Considering #{rows.length} rows"
+
+CSV.open("top_#{top}_last_names_in_the_netherlands_2007.csv", 'w+') do |csv|
+  rows.sort_by { |row| -Integer(row[3]) }[0..top].each do |row|
     csv << row
   end
 end
