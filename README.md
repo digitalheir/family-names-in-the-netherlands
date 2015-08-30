@@ -10,10 +10,10 @@ A basic list is available in multiple formats:
 
 |Format|
 |---|
-|[CSV](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.csv)|
-|[JSON](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.json)|
+|[CSV](https://raw.githubusercontent.com/digitalheir/family-names-in-the-netherlands/master/family_names_in_the_netherlands_with_natural_name.csv)|
+|[JSON](https://raw.githubusercontent.com/digitalheir/family-names-in-the-netherlands/master/family_names_in_the_netherlands_with_natural_name.json)|
 |[Fusion table](https://www.google.com/fusiontables/DataSource?docid=1V6_N4E9W4n8UX-INvK0bZOXHtmnN7-uc1JFTTOGS)|
-|[.lst (Alphabetic list of natural names)](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names.lst)|
+|[.lst (Alphabetic list of natural names)](https://raw.githubusercontent.com/digitalheir/family-names-in-the-netherlands/master/family_names.lst)|
 
 ## Top 50 last names in the Netherlands
 
@@ -80,7 +80,7 @@ Note that the list still contains some strange cases, such as `in 'tVeld` (missi
  
 
 ## Example
-Below are some (a-)typical examples or rows you'd find in the [`family_names_in_the_netherlands_with_natural_name.csv`](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.csv) file.
+Below are some (a-)typical examples or rows you'd find in the [`family_names_in_the_netherlands_with_natural_name.csv`](https://raw.githubusercontent.com/digitalheir/family-names-in-the-netherlands/master/family_names_in_the_netherlands_with_natural_name.csv) file.
 
 |natural name|meertens db name|href|count in 2007|lemma|
 |------------|----------------|----|-------------|-----|
