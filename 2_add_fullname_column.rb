@@ -73,7 +73,7 @@ CSV.foreach('family_names_in_the_netherlands.csv') do |row|
             space = ''
           end
         end
-        natural_name = "#{prefix.strip}#{space}#{db_name.gsub(/,[^,]*$/, '').strip}"
+        natural_name = "#{prefix.strip}#{space}#{db_name.gsub(/,[^,]*$/, '').strip}".strip
       end
     end
     # if [natural_name, db_name, href, count, lemma] == ['', '', '', '0', '']
