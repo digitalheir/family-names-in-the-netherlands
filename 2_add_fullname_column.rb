@@ -1,4 +1,5 @@
 require 'csv'
+require 'json'
 
 DONT_REMOVE_SPACE_FOR_PREFIXES = [
     /^'s$/,
@@ -13,7 +14,7 @@ DONT_CORRECT_NAMES = [
     /Hare Koninklijke Hoogheid M.xima, Prinses der Nederlanden, Prinses van Oranje-Nassau, Mevrouw van Amsberg/,
     /SpielmannRita Spielmann-Preses, geb\. 4-6-1906, won\./
 ]
-csv = []
+rows = []
 i=0
 CSV.foreach('family_names_in_the_netherlands.csv') do |row|
   if row[-4..-1] == ['family_name', 'href', 'number in 2007', 'lemma']
@@ -27,7 +28,12 @@ CSV.foreach('family_names_in_the_netherlands.csv') do |row|
     if href and href.length>0
       href = "http://meertens.knaw.nl/nfb/#{href}"
     end
-    count = row[2].force_encoding('utf-8').strip
+    count = row[2].force_encoding('utf-8').strip.gsub('.', '')
+    begin
+      count = Integer(count)
+    rescue
+      puts "Can't pase #{count}" unless count == '< 5'
+    end
     lemma = row[3].force_encoding('utf-8').strip
 
     natural_name = db_name
@@ -79,7 +85,7 @@ CSV.foreach('family_names_in_the_netherlands.csv') do |row|
     # if [natural_name, db_name, href, count, lemma] == ['', '', '', '0', '']
     #   puts "#{[natural_name, db_name, href, count, lemma]} ??? #{row}"
     # end
-    csv << [natural_name, db_name, href, count, lemma]
+    rows << [natural_name, db_name, href, count, lemma]
   end
   i+=1
   # if i%50000==0
@@ -87,10 +93,44 @@ CSV.foreach('family_names_in_the_netherlands.csv') do |row|
   # end
 end
 
-# Sort and write rows
+# Sort and write to files
+sorted = rows.sort_by { |row| row[0] }
 CSV.open('family_names_in_the_netherlands_with_natural_name.csv', 'w+') do |csv_f|
   csv_f << ['natural name', 'meertens db name', 'href', 'count in 2007', 'lemma']
-  csv.sort_by { |row| row[0] }.each do |row|
+  sorted.each do |row|
     csv_f << row
   end
 end
+
+# Create hash from list of arrays
+sorted = sorted.map do |row|
+  obj = {
+      natural_name: row[0],
+      meertens_db_name: row[1],
+      count_in_2007: row[3],
+  }
+  if row[2] and row[2].split.length > 0
+    obj[:href] = row[2]
+  end
+  if row[4] and row[4].split.length > 0
+    obj[:lemma]= row[4]
+  end
+  obj
+end
+
+# Write json file
+File.write('family_names_in_the_netherlands_with_natural_name.json', (sorted.to_json))
+
+# Throw away implausible names for the lookup list
+lookup_list = sorted.map { |o| o[:natural_name] }.reduce([]) do |list, item|
+  item = item.strip
+  unless item.length < 2 or [
+      'A B',
+      'A.B.',
+      '--',
+  ].include? item
+    list << item
+  end
+  list
+end
+File.write('family_names.lst', lookup_list.join("\n"))

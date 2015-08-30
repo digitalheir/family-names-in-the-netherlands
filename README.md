@@ -5,13 +5,15 @@
 
 This project exists to make structured, machine readable data out of the [Meertens Dutch Family Name Database](http://www.meertens.knaw.nl/nfb/), which contains about 320000 last names that were recorded in 2007 as well as in 1947.
 
-We scrape the Meertens website to generate a CSV file that contains: the family name, the number of times it was counted in 2007, and name as lemma (meaning the 'base' version names that has multiple variants, e.g. `Jansen` is the lemma for both `Janﬂen` and `Jansen`).
+## Usage
+A basic list is available in multiple formats:
 
-We then apply some formatting. Mainly, we add a column for the 'natural name', which transforms a name such as `Veld, in 't` to `in 't Veld`. The resulting file is [`family_names_in_the_netherlands_with_natural_name.csv`](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.csv), which is also uploaded as a [Fusion Table](). We also create an alphabetic lookup list of all family names in the database, which is available in [`family_names.lst`](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names.lst).
-
-Note that the list still contains some strange cases, such as `in 'tVeld` (missing space) and `van 0s` (with the number 0 instead of the letter O), but we do not attempt to correct these.
- 
-
+|Format|Filename|Notes|
+|---|---|---|---|
+|CSV |[family_names_in_the_netherlands_with_natural_name.csv](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.csv)||
+|JSON|[family_names_in_the_netherlands_with_natural_name.json](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.json)||
+|Fusion table|||
+|txt |[family_names.lst](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names.lst)|alphabetic lookup list of natural names|
 
 ## Top 50 last names in the Netherlands
 
@@ -68,6 +70,14 @@ Note that the list still contains some strange cases, such as `in 'tVeld` (missi
 |49|[Peeters](http://meertens.knaw.nl/nfb/detail_naam.php?gba_lcnaam=peeters&gba_naam=Peeters&nfd_naam=Peeters&operator=rx&taal=)|14054|
 |50|[de Jonge](http://meertens.knaw.nl/nfb/detail_naam.php?gba_lcnaam=de+jonge&gba_naam=de+Jonge&nfd_naam=Jonge%2C+de&operator=rx&taal=)|13989|
 
+## Procedure
+We scrape the Meertens website to generate a CSV file that contains: the family name, the number of times it was counted in 2007, and name as lemma (meaning the 'base' version names that has multiple variants, e.g. `Jansen` is the lemma for both `Janﬂen` and `Jansen`).
+
+We then apply some formatting. Mainly, we add a column for the 'natural name', which transforms a name such as `Veld, in
+ 't` to `in 't Veld`. 
+
+Note that the list still contains some strange cases, such as `in 'tVeld` (missing space) and `van 0s` (with the number 0 instead of the letter O), but we do not attempt to correct these.
+ 
 
 ## Example
 Below are some (a-)typical examples or rows you'd find in the [`family_names_in_the_netherlands_with_natural_name.csv`](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/family_names_in_the_netherlands_with_natural_name.csv) file.
@@ -91,6 +101,7 @@ Below are some (a-)typical examples or rows you'd find in the [`family_names_in_
  
 ## License
 Code is available under [MIT License](https://github.com/digitalheir/family-names-in-the-netherlands/blob/master/LICENSE.txt)
+
 Data is available under [CC-0 License](http://creativecommons.org/publicdomain/zero/1.0/)
 
 ## More information
