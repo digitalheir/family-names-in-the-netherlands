@@ -14,6 +14,8 @@ A basic list is available in multiple formats:
 |[JSON](https://raw.githubusercontent.com/digitalheir/family-names-in-the-netherlands/master/family_names_in_the_netherlands_with_natural_name.json)|
 |[Fusion table](https://www.google.com/fusiontables/DataSource?docid=1V6_N4E9W4n8UX-INvK0bZOXHtmnN7-uc1JFTTOGS)|
 |[.lst (Alphabetic list of natural names)](https://raw.githubusercontent.com/digitalheir/family-names-in-the-netherlands/master/family_names.lst)|
+|[.lst (names with frequency >= 5)](https://raw.githubusercontent.com/digitalheir/family-names-in-the-netherlands/master/family_names_freq_5_or_more.lst)|
+|[.lst (names with frequency < 5)](https://raw.githubusercontent.com/digitalheir/family-names-in-the-netherlands/master/family_names_freq_less_than_5.lst)|
 
 ## Top 50 last names in the Netherlands
 

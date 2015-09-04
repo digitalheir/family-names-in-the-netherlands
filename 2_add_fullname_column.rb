@@ -122,15 +122,29 @@ end
 File.write('family_names_in_the_netherlands_with_natural_name.json', (sorted.to_json))
 
 # Throw away implausible names for the lookup list
-lookup_list = sorted.map { |o| o[:natural_name] }.reduce([]) do |list, item|
-  item = item.strip
-  unless item.length < 2 or [
+plausible_names = sorted.reduce([]) do |list, item|
+  name = item[:natural_name].strip
+  unless name.length < 2 or [
       'A B',
       'A.B.',
       '--',
-  ].include? item
+  ].include? name
     list << item
   end
   list
 end
-File.write('family_names.lst', lookup_list.join("\n"))
+
+# Split list in common and uncommon names, where common means >=5 instances in the 2007 count
+split = plausible_names.reduce({common:[], uncommon:[]}) do |grow, element| 
+  if element[:count_in_2007].class == String or element[:count_in_2007] < 5
+    grow[:uncommon] << element
+  else
+    grow[:common] << element
+  end
+  grow
+end
+
+
+File.write('family_names.lst', plausible_names.map { |o| o[:natural_name] }.join("\n"))
+File.write('family_names_freq_5_or_more.lst', split[:common].map { |o| o[:natural_name] }.join("\n"))
+File.write('family_names_freq_less_than_5.lst', split[:uncommon].map { |o| o[:natural_name] }.join("\n"))
