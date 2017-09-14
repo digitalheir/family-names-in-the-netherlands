@@ -111,3 +111,6 @@ Data is available under [CC-0 License](http://creativecommons.org/publicdomain/z
 |---|---|
 |Dutch name (Wikipedia)|https://en.wikipedia.org/wiki/Dutch_name|
 |Meertens Dutch Family Name Database|http://www.meertens.knaw.nl/nfb/|
+
+## Contact
+Maarten Trompper (<maartentrompper@freedom.nl>)
