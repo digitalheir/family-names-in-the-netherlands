@@ -3,7 +3,7 @@
 # Family names in the Netherlands
 
 
-This project exists to make structured, machine readable data out of the [Meertens Dutch Family Name Database](http://www.meertens.knaw.nl/nfb/), which contains about 320 000 last names that were recorded in 2007 as well as in 1947.
+This project exists to make structured, machine readable data out of the [Meertens Dutch Family Name Database](http://www.meertens.knaw.nl/nfb/), which contains about 320 000 last names that were recorded in a 2007 census as well as in a 1947 census.
 
 ## Usage
 A basic list is available in multiple formats:
